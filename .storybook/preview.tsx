@@ -2,15 +2,19 @@ import { css, ThemeProvider } from '@emotion/react'
 import { Web3Provider } from '@ethersproject/providers'
 import { createWeb3ReactRoot, Web3ReactProvider } from '@web3-react/core'
 import Web3ReactManager from 'components/Web3ReactManager/Web3ReactManager'
-import * as nextImage from 'next/image'
+import { NetworkContextName } from 'const'
 import React from 'react'
 import { dark, light } from 'theme'
+import * as storybookThemes from './theme'
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   dependencies: {
     withStoriesOnly: true,
     hideEmpty: true,
+  },
+  docs: {
+    theme: storybookThemes.light,
   },
   viewport: {
     viewports: {
@@ -56,47 +60,14 @@ export const globalTypes = {
       items: ['light', 'dark'],
     },
   },
-  web3: {
-    name: 'Web3',
-    description: 'Connect to a web3 provider',
-    defaultValue: '',
-    toolbar: {
-      icon: 'unlock',
-      items: ['connect wallet'],
-    },
-  },
 }
 
 const baseCss = css`
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 1em 2em;
 `
 
-Object.defineProperty(nextImage, 'default', {
-  configurable: true,
-  value: (props) => {
-    const { width, height } = props
-    const ratio = (height / width) * 100
-    return (
-      <div
-        style={{
-          paddingBottom: `${ratio}%`,
-          position: 'relative',
-        }}>
-        <img
-          style={{
-            objectFit: 'cover',
-            position: 'absolute',
-            width: '100%',
-            height: '100%',
-          }}
-          {...props}
-        />
-      </div>
-    )
-  },
-})
-
-const Web3ProviderNetwork = createWeb3ReactRoot('NETWORK')
+const Web3ProviderNetwork = createWeb3ReactRoot(NetworkContextName)
 
 function getLibrary(provider) {
   const library = new Web3Provider(provider, 'any')

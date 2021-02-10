@@ -26,7 +26,6 @@ const Template: Story<ButtonProps> = (args) => (
 )
 
 const decoratorCss = css`
-  margin: 1em 2em;
   & > * {
     font-size: 2.5em;
   }

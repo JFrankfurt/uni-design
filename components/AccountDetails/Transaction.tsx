@@ -29,7 +29,7 @@ const TransactionState = styled(Link)`
 `
 
 const IconWrapper = styled.div`
-  color: ${({ theme }) => theme.red1};
+  color: red;
 `
 
 export default function Transaction({ hash }: { hash: string }) {

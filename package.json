@@ -3,10 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook --no-manager-cache -p 6006",
     "build-storybook": "build-storybook"
   },
   "dependencies": {
@@ -18,7 +15,6 @@
     "@web3-react/injected-connector": "^6.0.7",
     "@web3-react/walletconnect-connector": "^6.1.6",
     "ethers": "^5.0.29",
-    "next": "10.0.6",
     "polished": "^4.1.0",
     "react": "^17.0.1",
     "react-dom": "17.0.1"
@@ -38,6 +34,7 @@
     "@storybook/addon-essentials": "^6.1.17",
     "@storybook/addon-links": "^6.1.17",
     "@storybook/addons": "^6.1.17",
+    "@storybook/components": "^6.1.17",
     "@storybook/preset-typescript": "^3.0.0",
     "@storybook/react": "^6.1.17",
     "@storybook/theming": "^6.1.17",

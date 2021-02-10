@@ -1,8 +1,9 @@
 import { css, useTheme } from '@emotion/react'
 import { useWeb3React } from '@web3-react/core'
-import React, { useEffect, useState } from 'react'
 import { network } from 'connectors'
+import { NetworkContextName } from 'const'
 import { useEagerConnect, useInactiveListener } from 'hooks'
+import React, { useEffect, useState } from 'react'
 
 const messageWrapperCss = css`
   display: flex;
@@ -26,7 +27,7 @@ export default function Web3ReactManager({
     active: networkActive,
     error: networkError,
     activate: activateNetwork,
-  } = useWeb3React('NETWORK')
+  } = useWeb3React(NetworkContextName)
 
   // try to eagerly connect to an injected provider, if it exists and has granted access already
   const triedEager = useEagerConnect()
